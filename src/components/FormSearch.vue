@@ -33,16 +33,23 @@
             </div>
         </div>
         <Legend></Legend>
+        <div class="units">
+            <Unit></Unit>
+            <Unit></Unit>
+            <Unit></Unit>
+        </div>
     </div>
 </template>
 
 <script>
 import Legend from '../components/Legend.vue'
+import Unit from '../components/Unit.vue'
 
 export default {
     name: 'FormSearch',
     components: {
         Legend,
+        Unit,
     },
     props: {
     
@@ -67,31 +74,29 @@ export default {
     padding: 18px;
     margin: 42px 0;
 }
-
 .title {
     width: 100%;
     margin-bottom: 10px;
     border-bottom: 2px solid #ededed;
 }
-
 .title span {
     font-size: 14px;
     font-size: 0.87rem;
     font-family: 'Gotham';
 }
-
 .title img {
     width: 28.5px;
     margin-right: 10px;
     vertical-align: middle;
 }
-
 .title h2 {
     font-size: 23.5px;
     font-size: 1.46rem;
     margin: 32px 10px 12px;
 }
-
+.radiobuttons .radiobutton {
+    border-bottom: 2px solid #ededed;
+}
 .results {
     color: #333;
     font-family: 'Gotham';
@@ -101,7 +106,6 @@ export default {
     margin: 50px 0 30px;
     vertical-align: middle;
 }
-
 .results strong {
     font-size: 22px;
     font-size: 1.37rem;
@@ -109,18 +113,17 @@ export default {
     vertical-align: middle;
     margin-top: 2px;
 }
-
 .buttons {
     display: flex;
     justify-content: center;
 }
-
 .btn {
     width: 100%;
     max-width: 318px;
     border: none;
     color: #000;
     font-size: 16px;
+    font-size: 1rem;
     text-align: center;
     font-family: 'Gotham Bold';
     border-radius: 5px;
@@ -129,13 +132,16 @@ export default {
     padding: 13px 15px;
     margin: 0 10px;
 }
-
 .btn.primary {
     background-color: #ffb612;
 }
-
 .btn.outline {
     background-color: #fff;
-    border: 2px solid #CCCCCC;
+    border: 2px solid #ccc;
+}
+.units {
+    display: flex;
+    gap: 20px;
+    margin: 0 -10px;
 }
 </style>

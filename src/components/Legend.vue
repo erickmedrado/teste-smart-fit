@@ -67,8 +67,8 @@ export default {
     display: flex;
     flex-direction: row;
     background-color: #F5F5F5;
+    margin-bottom: 40px;
 }
-
 .items {
     display: flex;
     flex-wrap: wrap;
@@ -77,17 +77,14 @@ export default {
     align-items: center;
     padding: 25px 0 10px;
 }
-
 .items .item {
     margin: 10px 5px;
 }
-
 .legends .items .title {
     text-align: center;
     font-family: 'Gotham Black';
     flex-basis: 100%;
 }
-
 .items .item img {
     width: 60px;
 }

@@ -37,7 +37,6 @@
 .radiobuttons .radiobutton {
     position: relative;
     font-family: 'Gotham';
-    border-bottom: 2px solid #ededed;
     padding: 12px 0 14px;
 }
 

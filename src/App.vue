@@ -17,13 +17,11 @@
 
 <script>
 import FormSearch from './components/FormSearch.vue'
-import Units from './components/Units.vue'
 
 export default {
     name: 'App',
     components: {
         FormSearch,
-        Units,
     }
 }
 </script>
@@ -38,7 +36,6 @@ export default {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
-
 h1 {
     font-size: 41px;
     font-size: 2.57rem;
@@ -47,7 +44,6 @@ h1 {
     font-family: 'Gotham Bold', sans-serif;
     font-weight: bolder;
 }
-
 p {
     font-size: 15.8px;
     font-size: 0.99rem;
@@ -56,20 +52,17 @@ p {
     line-height: 1.68rem;
     font-family: 'Gotham', sans-serif;
 }
-
 header {
     width: 100%;
     text-align: center;
     padding: 26px 0;
     background-color: #000;
 }
-
 .container {
     max-width: 920px;
     padding: 80px 10px;
     margin: 0 auto;
 }
-
 .header .headline {
     width: 100px;
     height: 10px;
