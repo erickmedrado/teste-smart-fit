@@ -7,17 +7,17 @@
             </div>
             <div class="radiobuttons">
                 <div class="radiobutton">
-                    <input type="radio" id="manha" value="Manha" v-model="scheduleTime"><div class="check"></div>
+                    <input type="radio" id="manha" value="06:00 às 12:00" v-model="scheduleTime"><div class="check"></div>
                     <label for="manha">Manhã</label>
                     <span>06:00 às 12:00</span>
                 </div>
                 <div class="radiobutton">
-                    <input type="radio" id="tarde" value="Tarde" v-model="scheduleTime"><div class="check"></div>
+                    <input type="radio" id="tarde" value="12:01 às 18:00" v-model="scheduleTime"><div class="check"></div>
                     <label for="tarde">Tarde</label>
                     <span>12:01 às 18:00</span>
                 </div>
                 <div class="radiobutton">
-                    <input type="radio" id="noite" value="Noite" v-model="scheduleTime"><div class="check"></div>
+                    <input type="radio" id="noite" value="18:01 às 23:00" v-model="scheduleTime"><div class="check"></div>
                     <label for="noite">Noite</label>
                     <span>18:01 às 23:00</span>
                 </div>
@@ -25,18 +25,16 @@
             <div class="results">
                 <input type="checkbox" id="showclosed" class="checkbox" v-model="showClosed">
                 <label for="showclosed">Exibir unidades fechadas</label>
-                <p>Resultados encontrados: <strong>0</strong></p>
+                <p>Resultados encontrados: <strong>{{ filteredLocations.length }}</strong></p>
             </div>
             <div class="buttons">
-                <button class="btn primary" v-on:click="teste()">Encontrar unidade</button>
-                <button class="btn outline">Limpar</button>
+                <button class="btn primary" @click="resultSearch()">Encontrar unidade</button>
+                <button class="btn outline" @click="cleanSearch()">Limpar</button>
             </div>
         </div>
         <Legend></Legend>
         <div class="units">
-            <Location></Location>
-            <Location></Location>
-            <Location></Location>
+            <Location v-for="(location, index) in filteredLocations" :key="index" :test="index" :location="location"></Location>
         </div>
         <div><p></p></div>
     </div>
@@ -58,12 +56,60 @@ export default {
     data () {
       return {
         scheduleTime: '',
-        showClosed: '',
+        showClosed: false,
+        filteredLocations: [],
       }
     },
+    computed: {
+        splitSchedule: function() {
+            let split = this.scheduleTime.split(" às ");
+            split.forEach((hour, index) => {
+                split[index] = hour.replace(':','');
+            });
+            return split;
+        }
+    },
     methods: {
-        teste: function() {
-            console.log(this.locations);
+        splitHour: function(scheduleHour) {
+            let split = scheduleHour.split(" às ");
+            split.forEach((hour, index) => {
+                split[index] = hour.replace('h','') ;
+                split[index] += (hour.length > 3 ) ? "" : "00";
+            });
+            return split;
+        },
+        checkTime: function(schedules, location) {
+            let scheduleHour;
+            if (schedules) {
+                for (var i = 0; i < schedules.length; i++) {
+                    if (schedules[i].hour != "Fechada") {
+                        scheduleHour = this.splitHour(schedules[i].hour);
+                        if (scheduleHour[0] >= this.splitSchedule[0] && scheduleHour[0] < this.splitSchedule[1] ||
+                            scheduleHour[1] >  this.splitSchedule[0] && scheduleHour[1] <= this.splitSchedule[1] ||
+                            scheduleHour[0] <= this.splitSchedule[0] && scheduleHour[1] >= this.splitSchedule[1])
+                        {
+                            return true;
+                        }
+                    }
+                };
+            }
+            return false;
+        },
+        resultSearch: function() {
+            if (!this.scheduleTime) {
+                this.filteredLocations = this.showClosed ? 
+                        this.locations.filter(location => location.opened == true || location.opened == false)
+                      : this.locations.filter(location => location.opened == true);
+            } else {
+                this.filteredLocations = this.showClosed ?
+                        this.locations.filter(location => this.checkTime(location.schedules, location) == true || location.opened == false)
+                      : this.locations.filter(location => this.checkTime(location.schedules, location) == true && location.opened == true);
+            }
+        },
+        cleanSearch: function() {
+            this.filteredLocations = [];
+            this.showClosed = false;
+            this.scheduleTime = '';
         }
     }
 }
@@ -147,7 +193,7 @@ export default {
 }
 .units {
     display: flex;
-    gap: 20px;
-    margin: 0 -10px;
+    flex-wrap: wrap;
+    margin: 0 -20px;
 }
 </style>

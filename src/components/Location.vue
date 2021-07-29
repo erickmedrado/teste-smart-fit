@@ -1,28 +1,21 @@
 <template>
     <div class="box">
         <div class="header">
-            <h1 class="open">Aberto</h1>
-            <h2>Vicente Linhares</h2>
-            <p>Rua Tibúrcio Cavalcante, 1885 - Meireles<br>Fortaleza, CE</p>
+            <h1 class="opened" v-if="location.opened">Aberto</h1>
+            <h1 class="closed" v-else>Fechado</h1>
+            <h2 v-html="location.title"></h2>
+            <p v-html="location.content"></p>
         </div>
-        <div class="legends">
-            <img src="../assets/images/required-mask.png" alt="">
-            <img src="../assets/images/required-towel.png" alt="">
-            <img src="../assets/images/partial-fountain.png" alt="">
-            <img src="../assets/images/forbidden-lockerroom.png" alt="">
+        <div class="legends" v-if="location.opened">
+            <img v-if="location.mask"    :src="require('@/assets/images/'+location.mask+'-mask.png')" :alt="location.mask+' mask'">
+            <img v-if="location.towel"   :src="require('@/assets/images/'+location.towel+'-towel.png')" :alt="location.towel+' towel'">
+            <img v-if="fountainStatus"   :src="require('@/assets/images/'+fountainStatus+'-fountain.png')" :alt="fountainStatus+' fountain'">
+            <img v-if="lockerroomStatus" :src="require('@/assets/images/'+lockerroomStatus+'-lockerroom.png')" :alt="lockerroomStatus+' locker room'">
         </div>
-        <div class="days">
-            <div class="day">
-                <h3>Seg. à Sex.</h3>
-                <p>06h às 22h</p>
-            </div>
-            <div class="day">
-                <h3>Sáb.</h3>
-                <p>09h às 18h</p>
-            </div>
-            <div class="day">
-                <h3>Dom.</h3>
-                <p>Fechada</p>
+        <div class="days" v-if="location.opened">
+            <div class="day" v-for="(day, index) in location.schedules" :key="index">
+                <h3>{{ day.weekdays }}</h3>
+                <p>{{ day.hour }}</p>
             </div>
         </div>
     </div>
@@ -32,7 +25,25 @@
 export default {
     name: 'Location',
     props: {
-    
+        location: '',
+        test: ''
+    },
+    computed: {
+        fountainStatus: function() {
+            if (this.location.fountain == "not_allowed")
+                return "forbidden";
+            else {
+                return this.location.fountain;
+            }
+        },
+        lockerroomStatus: function() {
+            if (this.location.locker_room == "allowed")
+                return "required";
+            else if (this.location.locker_room == "not_allowed")
+                return "partial";
+            else if (this.location.locker_room == "closed")
+                return "forbidden";
+        }
     }
 } 
 </script>
@@ -40,16 +51,16 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 .box {
-    width: 30%;
+    width: 28%;
     border-radius: 5px;
     background-color: #F5F5F5;
     -webkit-box-shadow: 0px 0px 10px -1px #ccc; 
     box-shadow: 0px 0px 10px -1px #ccc;
     padding: 15px;
+    margin: 10px;
 }
 .box .header {
     padding-bottom: 12px ;
-    border-bottom: 2px solid #ccc;
 }
 .box .header p {
     color: #808080;
@@ -75,6 +86,7 @@ export default {
 .box .legends {
     display: flex;
     padding: 20px 0 28px;
+    border-top: 2px solid #ccc;
 }
 .box .legends img {
     width: 25%;
@@ -90,7 +102,7 @@ export default {
 .box .days .day h3 {
     margin-bottom: 4px;
 }
-.open {
+.opened {
     color: #2fc022;
 }
 .closed {

@@ -66,6 +66,7 @@ export default {
     color: #000;
     display: flex;
     flex-direction: row;
+    justify-content: center;
     background-color: #F5F5F5;
     margin-bottom: 40px;
 }
