@@ -129,3 +129,23 @@
     box-shadow: 2px 0 0 #ffb612, 4px 0 0 #ffb612, 4px -2px 0 #ffb612, 4px -4px 0 #ffb612, 4px -6px 0 #ffb612, 4px -8px 0 white;
     transform: rotate(45deg);
 }
+@media screen and (max-width: 576px) {
+    .radiobuttons .radiobutton {
+        padding: 16px 0;
+    }
+    .radiobuttons .radiobutton .check {
+        width: 20px;
+        height: 20px;
+        top: 16px;
+    }
+    .radiobuttons .radiobutton .check::before {
+        width: 12px;
+        height: 12px;
+    }
+    .radiobuttons .radiobutton label {
+        padding-left: 40px;
+    }
+    .checkbox + label:before {
+        vertical-align: middle;
+    }
+}

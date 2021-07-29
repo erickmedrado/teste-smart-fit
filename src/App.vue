@@ -1,7 +1,7 @@
 <template>
     <div id="app">
         <header>
-            <img width="185" src="./assets/images/logo.svg" alt="Smartfit logo">
+            <img class="logo" src="./assets/images/logo.svg" alt="Smartfit logo">
         </header>
         <div class="container">
             <div class="header">
@@ -32,7 +32,6 @@ export default {
     created: function() {
         axios.get("http://test-frontend-developer.s3.amazonaws.com/data/locations.json").then(response => {
             this.locations = response.data.locations;
-            // console.log(response.data.locations);
         });
     }
 }
@@ -40,7 +39,9 @@ export default {
 
 <style>
 @import '/assets/styles/main.css';
-
+body {
+    font: 100% verdana, arial, tahoma, sans-serif;
+}
 #app {
     color: #333;
     font-weight: normal;
@@ -51,17 +52,16 @@ export default {
 h1 {
     font-size: 41px;
     font-size: 2.57rem;
-    line-height: 49.6rem;
+    line-height: 49.6px;
     line-height: 3.1rem;
     font-family: 'Gotham Bold', sans-serif;
-    font-weight: bolder;
 }
 p {
     font-size: 15.8px;
     font-size: 0.99rem;
-    letter-spacing: 0px;
     line-height: 27px;
     line-height: 1.68rem;
+    letter-spacing: 0;
     font-family: 'Gotham', sans-serif;
 }
 header {
@@ -69,6 +69,9 @@ header {
     text-align: center;
     padding: 26px 0;
     background-color: #000;
+}
+header .logo {
+    width: 185px;
 }
 .container {
     max-width: 920px;
@@ -81,5 +84,38 @@ header {
     border: none;
     margin: 20px auto 35px 0;
     background-color: #333;
+}
+@media screen and (max-width: 768px) {
+    .container {
+        padding: 100px 26px;
+    }
+}
+@media screen and (max-width: 576px) {
+    body {
+        font: 150% verdana, arial, tahoma, sans-serif;
+    }
+    header {
+        padding: 35px 0;
+    }
+    header .logo {
+        width: 245px;
+    }
+    h1 {
+        font-size: 46px;
+        font-size: 2.87rem;
+        line-height: 56px;
+        line-height: 3.5rem;
+    }
+    p {
+        font-size: 17.6px;
+        font-size: 1.13rem;
+        line-height: 28px;
+        line-height: 1.75rem;
+    }
+    .header .headline {
+        width: 130px;
+        height: 13px;
+        margin: 30px auto 50px 0;
+    }
 }
 </style>

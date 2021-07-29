@@ -118,7 +118,6 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 #form {
-    /* width: 100%; */
     color: #808080;
     font-family: 'Gotham Ligth';
     border: 4px solid #ededed;
@@ -194,6 +193,56 @@ export default {
 .units {
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
     margin: 0 -20px;
+}
+@media screen and (max-width: 576px) {
+    #form {
+        font-size: 20px;
+        font-size: 1.25rem;
+        padding: 25px;
+    }
+    .title img {
+        width: 39px;
+        margin-right: 13px;
+    }
+    .title span {
+        font-size: 17.6px;
+        font-size: 1.15rem;
+    }
+    .title h2 {
+        font-size: 23.5px;
+        font-size: 1.98rem;
+    }
+    .results {
+        font-size: 21.6px;
+        font-size: 1.35rem;
+        flex-wrap: wrap;
+        justify-content: center;
+        padding: 10px 0;
+        margin: 30px 0;
+    }
+    .results p {
+        font-size: 21.6px;
+        font-size: 1.35rem;
+    }
+    .results strong {
+        font-size: 25.6px;
+        font-size: 1.6rem;
+    }
+    .checkbox + label {
+        margin-bottom: 20px;
+    }
+    .buttons {
+        flex-direction: column;
+    }
+    .btn {
+        font-size: 19.2px;
+        font-size: 1.2rem;
+        padding: 20px 40px;
+        margin: 10px 0;
+        max-width: 100%;
+    }
+
 }
 </style>

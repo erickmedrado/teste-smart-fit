@@ -108,4 +108,14 @@ export default {
 .closed {
     color: #dc0a17
 }
+@media screen and (max-width: 768px) {
+    .box {
+        width: 43%;
+    }
+}
+@media screen and (max-width: 576px) {
+    .box {
+        width: 100%;
+    }
+}
 </style>

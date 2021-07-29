@@ -89,4 +89,24 @@ export default {
 .items .item img {
     width: 60px;
 }
+@media screen and (max-width: 768px) {
+    .legends {
+        flex-wrap: wrap;
+    }
+    .items {
+        width: 50%;
+    }
+}
+@media screen and (max-width: 576px) {
+    .legends {
+        padding: 50px 20px;
+    }
+    .items {
+        width: 100%;
+        justify-content: space-around;
+    }
+    .items .item img {
+        width: 80px;
+    }
+}
 </style>
