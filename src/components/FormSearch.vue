@@ -1,41 +1,49 @@
 <template>
-    <div id="form">
-        <div class="title">
-            <img src="../assets/images/icon-hour.png" alt="Ícone de relógio"><span>Horário</span>
-            <h2>Qual período quer treinar?</h2>
-        </div>
-        <div class="radiobuttons">
-            <div class="radiobutton">
-                <input type="radio" id="manha" value="Manha" v-model="scheduleTime"><div class="check"></div>
-                <label for="manha">Manhã</label>
-                <span>06:00 às 12:00</span>
+    <div>
+        <div id="form">
+            <div class="title">
+                <img src="../assets/images/icon-hour.png" alt="Ícone de relógio"><span>Horário</span>
+                <h2>Qual período quer treinar?</h2>
             </div>
-            <div class="radiobutton">
-                <input type="radio" id="tarde" value="Tarde" v-model="scheduleTime"><div class="check"></div>
-                <label for="tarde">Tarde</label>
-                <span>12:01 às 18:00</span>
+            <div class="radiobuttons">
+                <div class="radiobutton">
+                    <input type="radio" id="manha" value="Manha" v-model="scheduleTime"><div class="check"></div>
+                    <label for="manha">Manhã</label>
+                    <span>06:00 às 12:00</span>
+                </div>
+                <div class="radiobutton">
+                    <input type="radio" id="tarde" value="Tarde" v-model="scheduleTime"><div class="check"></div>
+                    <label for="tarde">Tarde</label>
+                    <span>12:01 às 18:00</span>
+                </div>
+                <div class="radiobutton">
+                    <input type="radio" id="noite" value="Noite" v-model="scheduleTime"><div class="check"></div>
+                    <label for="noite">Noite</label>
+                    <span>18:01 às 23:00</span>
+                </div>
             </div>
-            <div class="radiobutton">
-                <input type="radio" id="noite" value="Noite" v-model="scheduleTime"><div class="check"></div>
-                <label for="noite">Noite</label>
-                <span>18:01 às 23:00</span>
+            <div class="results">
+                <input type="checkbox" id="showclosed" class="checkbox" v-model="showClosed">
+                <label for="showclosed">Exibir unidades fechadas</label>
+                <p>Resultados encontrados: <strong>0</strong></p>
+            </div>
+            <div class="buttons">
+                <button class="btn primary">Encontrar unidade</button>
+                <button class="btn outline">Limpar</button>
             </div>
         </div>
-        <div class="results">
-            <input type="checkbox" id="showclosed" class="checkbox" v-model="showClosed">
-            <label for="showclosed">Exibir unidades fechadas</label>
-            <p>Resultados encontrados: <strong>0</strong></p>
-        </div>
-        <div class="buttons">
-            <button class="btn primary">Encontrar unidade</button>
-            <button class="btn outline">Limpar</button>
-        </div>
+        <Legend></Legend>
     </div>
 </template>
 
 <script>
+import Legend from '../components/Legend.vue'
+
 export default {
     name: 'FormSearch',
+    components: {
+        Legend,
+    },
     props: {
     
     },

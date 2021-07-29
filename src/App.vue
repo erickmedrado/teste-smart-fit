@@ -65,9 +65,9 @@ header {
 }
 
 .container {
-    padding: 80px 0;
-    margin: 0 auto;
     max-width: 920px;
+    padding: 80px 10px;
+    margin: 0 auto;
 }
 
 .header .headline {
