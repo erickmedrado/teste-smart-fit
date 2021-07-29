@@ -28,7 +28,7 @@
                 <p>Resultados encontrados: <strong>0</strong></p>
             </div>
             <div class="buttons">
-                <button class="btn primary">Encontrar unidade</button>
+                <button class="btn primary" v-on:click="teste()">Encontrar unidade</button>
                 <button class="btn outline">Limpar</button>
             </div>
         </div>
@@ -38,6 +38,7 @@
             <Unit></Unit>
             <Unit></Unit>
         </div>
+        <div><p></p></div>
     </div>
 </template>
 
@@ -52,7 +53,7 @@ export default {
         Unit,
     },
     props: {
-    
+        locations: '',
     },
     data () {
       return {
@@ -60,6 +61,11 @@ export default {
         showClosed: '',
       }
     },
+    methods: {
+        teste: function() {
+            console.log(this.locations);
+        }
+    }
 }
 </script>
 

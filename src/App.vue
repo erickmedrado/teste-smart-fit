@@ -10,18 +10,31 @@
                 <hr class="headline">
                 <p>O horário de funcionamento das nossas unidades está seguindo os decretos de cada município. Por isso, confira aqui se a sua unidade está aberta e as medidas de segurança que estamos seguindo.</p>
             </div>
-            <FormSearch></FormSearch>
+            <FormSearch
+                :locations="locations"
+            ></FormSearch>
         </div>
     </div>
 </template>
 
 <script>
 import FormSearch from './components/FormSearch.vue'
+import axios from 'axios';
 
 export default {
     name: 'App',
     components: {
         FormSearch,
+    },
+    data () {
+      return {
+        locations: [],
+      }
+    },
+    created: function() {
+        axios.get("http://test-frontend-developer.s3.amazonaws.com/data/locations.json").then(response => {
+            this.locations = response.data.locations;
+        });
     }
 }
 </script>
