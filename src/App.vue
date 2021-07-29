@@ -12,6 +12,10 @@
             </div>
             <FormSearch :locations="locations"></FormSearch>
         </div>
+        <footer>
+            <img class="logo" src="./assets/images/logo.svg" alt="Smartfit logo">
+            <p>Todos os direitos reservados - 2020</p>
+        </footer>
     </div>
 </template>
 
@@ -39,9 +43,7 @@ export default {
 
 <style>
 @import '/assets/styles/main.css';
-body {
-    font: 100% verdana, arial, tahoma, sans-serif;
-}
+
 #app {
     color: #333;
     font-weight: normal;
@@ -85,15 +87,23 @@ header .logo {
     margin: 20px auto 35px 0;
     background-color: #333;
 }
+footer {
+    color: #fff;
+    width: 100%;
+    text-align: center;
+    background-color: #333333;
+    padding: 50px 0 80px;
+}
+footer .logo {
+    width: 100px;
+    margin-bottom: 20px;
+}
 @media screen and (max-width: 768px) {
     .container {
         padding: 100px 26px;
     }
 }
 @media screen and (max-width: 576px) {
-    body {
-        font: 150% verdana, arial, tahoma, sans-serif;
-    }
     header {
         padding: 35px 0;
     }
@@ -117,5 +127,13 @@ header .logo {
         height: 13px;
         margin: 30px auto 50px 0;
     }
+    footer .logo {
+        width: 120px;
+    }
+    footer p {
+        font-size: 1.3rem;
+        padding: 0 30px;
+    }
+
 }
 </style>
