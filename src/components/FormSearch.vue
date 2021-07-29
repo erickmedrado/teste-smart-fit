@@ -34,9 +34,9 @@
         </div>
         <Legend></Legend>
         <div class="units">
-            <Unit></Unit>
-            <Unit></Unit>
-            <Unit></Unit>
+            <Location></Location>
+            <Location></Location>
+            <Location></Location>
         </div>
         <div><p></p></div>
     </div>
@@ -44,13 +44,13 @@
 
 <script>
 import Legend from '../components/Legend.vue'
-import Unit from '../components/Unit.vue'
+import Location from '../components/Location.vue'
 
 export default {
     name: 'FormSearch',
     components: {
         Legend,
-        Unit,
+        Location,
     },
     props: {
         locations: '',

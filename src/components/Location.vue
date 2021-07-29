@@ -30,7 +30,7 @@
 
 <script>
 export default {
-    name: 'Unit',
+    name: 'Location',
     props: {
     
     }
