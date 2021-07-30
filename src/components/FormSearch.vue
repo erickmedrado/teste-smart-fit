@@ -28,7 +28,7 @@
                 <p>Resultados encontrados: <strong>{{ filteredLocations.length }}</strong></p>
             </div>
             <div class="buttons">
-                <a class="btn primary" v-on:click="resultSearch()">Encontrar unidade</a>
+                <a class="btn primary" @click="resultSearch()">Encontrar unidade</a>
                 <a class="btn outline" @click="cleanSearch()">Limpar</a>
             </div>
         </div>
@@ -172,7 +172,6 @@ export default {
     width: 100%;
     max-width: 318px;
     border: none;
-    cursor: pointer;
     color: #000;
     font-size: 16px;
     font-size: 1rem;

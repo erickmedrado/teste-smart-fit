@@ -34,9 +34,9 @@ export default {
       }
     },
     created: function() {
-        axios.get("http://test-frontend-developer.s3.amazonaws.com/data/locations.json").then(response => {
-            this.locations = response.data.locations;
-        });
+        axios.get("https://test-frontend-developer.s3.amazonaws.com/data/locations.json")
+             .then(response => { this.locations = response.data.locations; })
+             .catch(error => console.log(error));
     }
 }
 </script>
