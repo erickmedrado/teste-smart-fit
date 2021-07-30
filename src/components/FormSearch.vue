@@ -28,8 +28,8 @@
                 <p>Resultados encontrados: <strong>{{ filteredLocations.length }}</strong></p>
             </div>
             <div class="buttons">
-                <a class="btn primary" @click="resultSearch()">Encontrar unidade</a>
-                <a class="btn outline" @click="cleanSearch()">Limpar</a>
+                <button class="btn primary" @click="resultSearch()">Encontrar unidade</button>
+                <button class="btn outline" @click="cleanSearch()">Limpar</button>
             </div>
         </div>
         <Legend></Legend>
