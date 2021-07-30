@@ -216,8 +216,8 @@ export default {
         font-size: 1.98rem;
     }
     .results {
-        font-size: 21.6px;
-        font-size: 1.35rem;
+        font-size: 17.6px;
+        font-size: 1.1rem;
         flex-wrap: wrap;
         justify-content: center;
         padding: 10px 0;
