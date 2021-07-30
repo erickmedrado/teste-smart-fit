@@ -33,8 +33,11 @@
             </div>
         </div>
         <Legend></Legend>
-        <div class="units">
+        <div class="units" v-if="!notFound">
             <Location v-for="(location, index) in filteredLocations" :key="index" :test="index" :location="location"></Location>
+        </div>
+        <div class="units" v-else>
+            <h3>Nenhuma unidade encontrada</h3>
         </div>
         <div><p></p></div>
     </div>
@@ -57,6 +60,7 @@ export default {
       return {
         scheduleTime: '',
         showClosed: false,
+        notFound: false,
         filteredLocations: [],
       }
     },
@@ -105,11 +109,16 @@ export default {
                         this.locations.filter(location => this.checkTime(location.schedules, location) == true || location.opened == false)
                       : this.locations.filter(location => this.checkTime(location.schedules, location) == true && location.opened == true);
             }
+            this.filteredLocations = [];
+            if (!this.filteredLocations.length) {
+                this.notFound = true;
+            }
         },
         cleanSearch: function() {
             this.filteredLocations = [];
             this.showClosed = false;
             this.scheduleTime = '';
+            this.notFound = false;
         }
     }
 }
