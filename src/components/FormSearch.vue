@@ -28,8 +28,10 @@
                 <p>Resultados encontrados: <strong>{{ filteredLocations.length }}</strong></p>
             </div>
             <div class="buttons">
-                <button class="btn primary" @click.prevent="resultSearch()">Encontrar unidade</button>
-                <button class="btn outline" @click.prevent="cleanSearch()">Limpar</button>
+                <button class="btn primary" v-on:click.native="resultSearch()">Encontrar unidade</button>
+                <button class="btn primary" @click.native="resultSearch()">Encontrar unidade</button>
+                <button class="btn primary" @change="resultSearch()">Encontrar unidade</button>
+                <button class="btn outline" @change="cleanSearch()">Limpar</button>
             </div>
         </div>
         <Legend></Legend>
