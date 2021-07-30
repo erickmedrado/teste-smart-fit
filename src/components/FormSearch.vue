@@ -34,7 +34,7 @@
         </div>
         <Legend></Legend>
         <div class="units" v-if="!notFound">
-            <Location v-for="(location, index) in filteredLocations" :key="index" :test="index" :location="location"></Location>
+            <Location v-for="location in filteredLocations" :key="location.id" :location="location"></Location>
         </div>
         <div class="units" v-else>
             <h3>Nenhuma unidade encontrada</h3>

@@ -26,7 +26,6 @@ export default {
     name: 'Location',
     props: {
         location: '',
-        test: ''
     },
     computed: {
         fountainStatus: function() {
