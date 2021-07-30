@@ -131,6 +131,7 @@ footer .logo {
         width: 120px;
     }
     footer p {
+        font-size: 20.8px;
         font-size: 1.3rem;
         padding: 0 30px;
     }

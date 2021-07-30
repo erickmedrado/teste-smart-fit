@@ -65,6 +65,7 @@ export default {
 .box .header p {
     color: #808080;
     font-size: 14px;
+    font-size: 0.87rem;
     line-height: 16px;
 }
 .box h1 {
@@ -75,11 +76,13 @@ export default {
 }
 .box h2 {
     font-size: 25.5px;
+    font-size: 1.59rem;
     font-family: 'Gotham Bold';
     margin: 14px 0 16px;
 }
 .box h3 {
     font-size: 22px;
+    font-size: 1.37rem;
     line-height: 28px;
     font-family: 'Gotham Bold';
 }

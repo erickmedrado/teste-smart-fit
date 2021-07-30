@@ -169,6 +169,7 @@ export default {
     justify-content: center;
 }
 .btn {
+    cursor: pointer;
     width: 100%;
     max-width: 318px;
     border: none;
@@ -223,12 +224,12 @@ export default {
         margin: 30px 0;
     }
     .results p {
-        font-size: 21.6px;
-        font-size: 1.35rem;
+        font-size: 17.6px;
+        font-size: 1.1rem;
     }
     .results strong {
-        font-size: 25.6px;
-        font-size: 1.6rem;
+        font-size: 19.2px;
+        font-size: 1.2rem;
     }
     .checkbox + label {
         margin-bottom: 20px;
