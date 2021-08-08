@@ -109,7 +109,6 @@ export default {
                         this.locations.filter(location => this.checkTime(location.schedules, location) == true || location.opened == false)
                       : this.locations.filter(location => this.checkTime(location.schedules, location) == true && location.opened == true);
             }
-            this.filteredLocations = [];
             if (!this.filteredLocations.length) {
                 this.notFound = true;
             }
