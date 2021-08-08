@@ -1,7 +1,9 @@
 # Front-end Smart Fit
 > Esse é um pequeno projeto criado como base para a avaliação de habilidades técnicas para o papel de Front-end.
 
-### Veja o projeto em produção <a href="https://vercel.com/erickmedrado/teste-smart-fit">aqui.</a>
+### Veja o desafio proposto <a href="https://github.com/bioritmo/front-end-code-challenge-smartsite/">aqui.</a>
+
+### Veja o projeto em produção <a href="https://teste-smart-fit.vercel.app/">aqui.</a>
 
 ## Imagem de preview
 ![Alt text](preview.png "Imagem de preview do projeto")
